@@ -108,6 +108,20 @@ main {
     justify-content: space-around;
 }
 
+input[type="text"] {
+    display: block;
+    font-size: 2rem;
+    background-color: var(--background-color);
+    color: var(--button-text-color);
+    border: none;
+    text-align: center;
+    min-width: 10rem;
+    max-width: 15rem;
+    font-weight: bold;
+    
+}
+
+
 @media only screen and (max-width: 768px) {
     #scoreBoard {
         margin: 2rem 0rem;
@@ -117,6 +131,9 @@ main {
     }
     #scoreBoard div p{
         font-size: 1.2rem;
+    }
+    input[type="text"] {
+        max-width: 10rem;
     }
 
 }
