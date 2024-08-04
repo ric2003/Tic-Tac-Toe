@@ -142,10 +142,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
                 [0, 4, 8], [2, 4, 6] // Diagonals
             ];
-            return winPatterns.some(pattern => 
+            const winningPattern = winPatterns.find(pattern =>
                 pattern.every(index => board[index] === getCurrentPlayerMark())
             );
+        
+            if (winningPattern) {
+                winningPattern.forEach(index => {
+                    const cell = document.querySelector(`.cell[data-index="${index}"]`);
+                    cell.classList.add('winner');
+                    
+                    // Remove the class when the animation ends
+                    cell.addEventListener('animationend', () => {
+                        cell.classList.remove('winner');
+                    }, { once: true });
+                });
+                return true;
+            }
+            return false;
         };
+        
 
         const checkTie = () => {
             return GameBoard.getBoard().every(cell => cell !== "");

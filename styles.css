@@ -48,6 +48,7 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     justify-content: center;
+    position: relative;
 }
 
 #scoreBoard {
@@ -70,6 +71,7 @@ main {
     align-items: center;
     justify-content: center;
     font-size: 4rem;
+    position: relative;
 }
 
 .cell:nth-child(3n) {
@@ -120,6 +122,17 @@ input[type="text"] {
     font-weight: bold;
     
 }
+
+.cell.winner {
+    animation: highlight 1s ease-out;
+}
+
+@keyframes highlight {
+    0% { background-color: rgba(255, 136, 0, 0.558); }
+    100% { background-color: transparent; }
+}
+
+
 
 
 @media only screen and (max-width: 768px) {
